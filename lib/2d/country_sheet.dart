@@ -45,7 +45,7 @@ class CountrySheet extends StatelessWidget {
           const SizedBox(height: 12),
           FilledButton.icon(
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.check),
+            icon: const Icon(Icons.cancel_outlined),
             label: const Text('Close'),
           ),
           const SizedBox(height: 8),
