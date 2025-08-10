@@ -1,16 +1,31 @@
-# country_flag
+# 🌍 Flag Globe – Flutter Country Flags Sphere (2D Version)
 
-A new Flutter project.
+**Flag Globe (2D Version)** is a Flutter application that displays a beautifully arranged, sphere-like **2D grid** of world flags using the [`country_flags`](https://pub.dev/packages/country_flags) package.  
+Users can tap on any flag to view more details about the country, including its **name, capital city, and region**.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📸 Screenshot / Preview
+> *(Add a screenshot or screen recording here to showcase the UI)*
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ✨ Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **2D globe-like layout** of flags for a visually appealing display.
+- Uses the **`country_flags` package** for accurate ISO country flag rendering.
+- Interactive bottom sheet showing:
+    - Country name
+    - Capital city
+    - Region
+- Smooth and responsive UI using Material 3 design.
+- Works seamlessly on both **Android** and **iOS**.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Flutter** – Cross-platform framework for building mobile apps.
+- **Dart** – Programming language for Flutter.
+- **country_flags** – For rendering country flags based on ISO country codes.
+- **Material Design 3** – Modern UI components.
