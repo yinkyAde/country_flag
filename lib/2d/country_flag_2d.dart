@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:country_flags/country_flags.dart';
+
+import 'country_model.dart';
+import 'country_sheet.dart';
+import 'flat_tile.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,18 +20,6 @@ class MyApp extends StatelessWidget {
       home: const FlagGlobePage(),
     );
   }
-}
-
-class Country {
-  final String name;
-  final String code; // ISO country code, e.g. "NG"
-  final Map<String, String> extra;
-
-  const Country({
-    required this.name,
-    required this.code,
-    this.extra = const {},
-  });
 }
 
 class FlagGlobePage extends StatelessWidget {
@@ -148,7 +139,7 @@ class _FlagSphere extends StatelessWidget {
                   final bow = (1 - (t * t)) * 8; // center wider than poles
                   return Padding(
                     padding: EdgeInsets.symmetric(horizontal: bow),
-                    child: _FlagTile(
+                    child: FlagTile(
                       country: c,
                       onTap: () => _showCountrySheet(context, c),
                     ),
@@ -169,94 +160,7 @@ class _FlagSphere extends StatelessWidget {
       showDragHandle: true,
       isScrollControlled: true,
       backgroundColor: Theme.of(context).colorScheme.surface,
-      builder: (context) => _CountrySheet(country: c),
-    );
-  }
-}
-
-class _FlagTile extends StatelessWidget {
-  final Country country;
-  final VoidCallback onTap;
-  const _FlagTile({required this.country, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(10);
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: radius,
-        child: Ink(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: radius,
-          ),
-          child: ClipRRect(
-            borderRadius: radius,
-            child: Center(
-              child: CountryFlag.fromCountryCode(
-                country.code,
-                shape: const RoundedRectangle(4),
-                width: double.infinity,
-                height: double.infinity,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _CountrySheet extends StatelessWidget {
-  final Country country;
-  const _CountrySheet({required this.country});
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 96,
-            height: 64,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: cs.outlineVariant),
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: CountryFlag.fromCountryCode(
-              country.code,
-              shape: const RoundedRectangle(8),
-              width: 96,
-              height: 64,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Text(country.name, style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 16),
-          ...country.extra.entries.map(
-                (e) => ListTile(
-              dense: true,
-              contentPadding: EdgeInsets.zero,
-              title: Text(e.key),
-              trailing: Text(e.value),
-            ),
-          ),
-          const SizedBox(height: 12),
-          FilledButton.icon(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.check),
-            label: const Text('Close'),
-          ),
-          const SizedBox(height: 8),
-        ],
-      ),
+      builder: (context) => CountrySheet(country: c),
     );
   }
 }
