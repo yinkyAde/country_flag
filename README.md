@@ -6,7 +6,10 @@ Users can tap on any flag to view more details about the country, including its 
 ---
 
 ## 📸 Screenshot / Preview
-> *(Add a screenshot or screen recording here to showcase the UI)*
+> <img width="1680" height="1050" alt="Screenshot 2025-08-10 at 11 51 45 pm" src="https://github.com/user-attachments/assets/b46571ed-dc49-40ce-afe2-3aa994a3f942" />
+> <img width="1680" height="1050" alt="Screenshot 2025-08-10 at 11 51 53 pm" src="https://github.com/user-attachments/assets/1cf24e00-2024-4be5-8f7d-d6efa9fa97d1" />
+
+
 
 ---
 
